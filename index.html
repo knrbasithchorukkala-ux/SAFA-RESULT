@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Safa Quran College — Exam Result 2026</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f7f6;color:#18322b}
+.wrap{max-width:720px;margin:auto;padding:24px 16px 50px}
+.card{background:white;border-radius:18px;padding:24px;box-shadow:0 8px 28px #00000012}
+.header{text-align:center;margin-bottom:22px} h1{font-size:24px;margin:4px 0} .sub{color:#64756f;font-size:14px}
+label{font-size:14px;font-weight:700;display:block;margin-bottom:8px}
+input{width:100%;padding:15px;border:1px solid #ccd8d4;border-radius:10px;font-size:17px;outline:none}
+button{width:100%;margin-top:12px;padding:15px;border:0;border-radius:10px;background:#1d6b58;color:white;font-size:17px;font-weight:700;cursor:pointer}
+.hint{font-size:12px;color:#71817c;margin-top:8px}
+.result{margin-top:22px} .student{border-bottom:1px solid #e5ebe8;padding-bottom:15px;margin-bottom:14px}
+.name{font-size:21px;font-weight:800} .programme{font-size:13px;color:#667771;margin-top:4px}
+table{width:100%;border-collapse:collapse;margin-top:12px} th,td{padding:11px;border-bottom:1px solid #e8eeec;text-align:left} th{font-size:13px;color:#687873}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px} .box{background:#f1f6f4;padding:12px;border-radius:10px;text-align:center} .box b{display:block;font-size:19px} .box span{font-size:11px;color:#687873}
+.error{margin-top:18px;padding:14px;background:#fff1f1;border-radius:10px;color:#9a3333;display:none}
+.footer{text-align:center;color:#74817e;font-size:12px;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="card">
+<div class="header"><div class="sub">SAFA QURAN COLLEGE INTEGRATED STUDIES</div><h1>Half-Yearly Examination Result</h1><div class="sub">Academic Session 2026 • Thamheediyya / Sanaviyya / Aliya</div></div>
+<label for="roll">Enter Admission / Roll No.</label>
+<input id="roll" inputmode="numeric" autocomplete="off" placeholder="Example: 117" onkeydown="if(event.key==='Enter')showResult()">
+<button onclick="showResult()">View Result</button>
+<div id="error" class="error">Result not found. Please check the Admission / Roll No.</div>
+<div id="result" class="result"></div>
+<div class="footer">Safa Quran College Integrated Studies</div>
+</div></div>
+<script>
+const students = [{"roll": "117", "name": "HAFIZ BILAL", "programme": "THAMHEEDIYYA PROGRAMME", "subjects": {"Hadees": 99, "Fiqh": 90, "Sarf": 99, "Adab": 97}, "total": 385, "grade": "A+", "remarks": "Outstanding"}, {"roll": "124", "name": "HAFIZ NAJID", "programme": "THAMHEEDIYYA PROGRAMME", "subjects": {"Hadees": 98, "Fiqh": 98, "Sarf": 99, "Adab": 97}, "total": 392, "grade": "A+", "remarks": "Outstanding"}, {"roll": "118", "name": "HAFIZ JAWAD", "programme": "THAMHEEDIYYA PROGRAMME", "subjects": {"Hadees": 99, "Fiqh": 93, "Sarf": 99, "Adab": 97}, "total": 388, "grade": "A", "remarks": "Outstanding"}, {"roll": "146", "name": "HAFIZ FASAL", "programme": "THAMHEEDIYYA PROGRAMME", "subjects": {"Hadees": 95, "Fiqh": 56, "Sarf": 94, "Adab": 40}, "total": 285, "grade": "B", "remarks": "Satisfactory"}, {"roll": "100", "name": "HAFIZ MUHAMMED NIHAD", "programme": "SANAVIYYA PROGRAMME", "subjects": {"Hadees": 60, "Fiqh": 79, "Aqeeda": 78, "Nahvu": 78}, "total": 295, "grade": "B", "remarks": "Good"}, {"roll": "102", "name": "HAFIZ MUHAMMED", "programme": "SANAVIYYA PROGRAMME", "subjects": {"Hadees": 67, "Fiqh": 65, "Aqeeda": 80, "Nahvu": 72}, "total": 284, "grade": "B", "remarks": "Satisfactory"}, {"roll": "104", "name": "HAFIZ MUHAMMED RAZAL", "programme": "SANAVIYYA PROGRAMME", "subjects": {"Hadees": 60, "Fiqh": 46, "Aqeeda": 80, "Nahvu": 68}, "total": 254, "grade": "C", "remarks": "Improvement"}, {"roll": "105", "name": "HAFIZ MAUHAMMED ZAID", "programme": "SANAVIYYA PROGRAMME", "subjects": {"Hadees": 55, "Fiqh": 50, "Aqeeda": 70, "Nahvu": 64}, "total": 239, "grade": "C", "remarks": "Improvement"}, {"roll": "116", "name": "HAFIZ MUHAMMED SWALIH", "programme": "SANAVIYYA PROGRAMME", "subjects": {"Hadees": 92, "Fiqh": 57, "Aqeeda": 90, "Nahvu": 91}, "total": 330, "grade": "A", "remarks": "Very Good"}, {"roll": "138", "name": "HAFIZ MISHAB", "programme": "SANAVIYYA PROGRAMME", "subjects": {"Hadees": 70, "Fiqh": 72, "Aqeeda": 77, "Nahvu": 70}, "total": 289, "grade": "B", "remarks": "Good"}, {"roll": "140", "name": "HAFIZ MUHAMMED RIZWAAN", "programme": "SANAVIYYA PROGRAMME", "subjects": {"Hadees": 56, "Fiqh": 58, "Aqeeda": 64, "Nahvu": 52}, "total": 230, "grade": "C", "remarks": "Improvement"}, {"roll": "92", "name": "HAFIZ SINAN", "programme": "ALIYA PROGRAMME", "subjects": {"Thafseer": 74, "Hadees": 76, "Fiqh": 55, "Nahvu": 94}, "total": 299, "grade": "B", "remarks": "Good"}, {"roll": "93", "name": "HAFIZ ASLAM", "programme": "ALIYA PROGRAMME", "subjects": {"Thafseer": 65, "Hadees": 83, "Fiqh": 61, "Nahvu": 93}, "total": 302, "grade": "B", "remarks": "Good"}, {"roll": "127", "name": "HAFIZ HAMID SUROOR", "programme": "ALIYA PROGRAMME", "subjects": {"Thafseer": 57, "Hadees": 58, "Fiqh": 36, "Nahvu": 80}, "total": 231, "grade": "C", "remarks": "Improvement"}];
+function showResult(){
+ const key=document.getElementById('roll').value.trim();
+ const s=students.find(x=>x.roll===key);
+ const result=document.getElementById('result'), error=document.getElementById('error');
+ result.innerHTML=''; error.style.display='none';
+ if(!s){ if(key) error.style.display='block'; return; }
+ let rows=Object.entries(s.subjects).map(([sub,mark])=>`<tr><td>${sub}</td><td><b>${mark}</b> / 100</td></tr>`).join('');
+ result.innerHTML=`<div class="student"><div class="name">${s.name}</div><div class="programme">${s.programme} • Admission No. ${s.roll}</div></div>
+ <table><thead><tr><th>Subject</th><th>Marks</th></tr></thead><tbody>${rows}</tbody></table>
+ <div class="summary"><div class="box"><b>${s.total}</b><span>Total</span></div><div class="box"><b>${s.grade}</b><span>Grade</span></div><div class="box"><b>${s.remarks}</b><span>Remarks</span></div></div>`;
+}
+</script>
+</body></html>
